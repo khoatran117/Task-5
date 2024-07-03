@@ -1,3 +1,5 @@
+"use client";
+
 import { EButonIconPosition, EButtonSize, ETextButtonVariant } from "@/enum";
 import { cn } from "@/functions/cn";
 import { isEmptyString } from "@/functions/validate";
@@ -25,6 +27,7 @@ interface PrimaryButtonProps {
   iconPosition?: TextButtonIconPosition;
   size?: TextButtonSize;
   className?: string;
+  onClick?: () => void;
 }
 
 const getButtonStyle = (style?: string) => {
@@ -83,6 +86,7 @@ export const TextButton = (props?: PrimaryButtonProps) => {
         props?.iconPosition === "left" && "flex-row-reverse",
         props?.className
       )}
+      onClick={props?.onClick}
     >
       {props?.label}
       {props?.hasIcon &&

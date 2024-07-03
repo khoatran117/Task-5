@@ -1,3 +1,5 @@
+"use client";
+
 import { PlusIcon } from "../../../icons/Plus";
 import { LoadingIcon } from "@/icons";
 import { EButonIconPosition, EButtonSize, EPrimaryButtonVariant } from "@/enum";
@@ -27,6 +29,7 @@ interface PrimaryButtonProps {
   iconPosition?: PrimaryButtonIconPosition;
   size?: PrimaryButtonSize;
   className?: string;
+  onClick?: () => void;
 }
 
 const getLoadingStyle = (style?: string) => {
@@ -114,6 +117,7 @@ export const PrimaryButton = (props?: PrimaryButtonProps) => {
         props?.iconPosition === "left" && "flex-row-reverse",
         props?.className
       )}
+      onClick={props?.onClick}
     >
       {props?.label}
 
